@@ -1,0 +1,37 @@
+# Site settings
+title: Alex Bloom
+email: alexbloomdesign@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Creative Direction, Design, Code, and Consulting for non-profits, for-profits, strangers and friends.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: alexbloom
+github_username: alexbloom
+medium_username: alexbloom
+ello_username: alexbloom
+instagram_username: alexbloom	 
+twitter_username: alexbloom
+
+# Disqus shortname, Enable commenting on posts
+# disqus: alexbloom
+
+#
+# !! You don't need to change any of the configuration flags below !!
+#
+# Build settings
+markdown: kramdown
+highlighter: pygments
+permalink: /:categories/:title/
+
+# Set the Sass partials directory, as we're using @imports
+#sass:
+ #sass_dir: _sass
+ #style: :expanded # You might prefer to minify using :compressed
+
+# Exclude these files from your production _site
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - LICENSE
+    - README.md
+

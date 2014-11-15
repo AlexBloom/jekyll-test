@@ -1,0 +1,427 @@
+//Layout Variables
+
+%max-width-content-block{
+	max-width:em(750);
+	margin-left: auto;
+	margin-right: auto;
+	width:90%;
+	padding-left:5%;
+	padding-right:5%;
+}
+
+/**
+ * Site Header & Navigation
+ */
+.site-header {
+    border-top: 5px solid $grey-dark;
+    border-bottom: 1px solid $grey-light;
+    position: relative;
+	nav{
+	//position:fixed;
+	position:relative;
+	@extend %clearfix;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background-color:$black;
+	background-color:rgba(255,255,255,1);
+	width:100%;
+	:nth-child(1){
+		left:0;
+	}
+	:nth-child(2){
+		left:46%;
+		right:46%;
+	}
+	:nth-child(3){
+		right:0;
+	}
+		a{
+			//position:absolute;
+			display:none;
+			//display:block;
+			border:1px solid $black;
+			border-radius:100%;
+			width:3em;
+			height:3em;
+			padding:1em;
+			text-align:center;
+			span{
+				display:block;
+			}
+		}
+	}
+}
+
+
+/**
+ * Site footer
+ */
+.site-footer {
+    border-top: 1px solid $grey-light;
+    padding: $spacing-unit 0;
+	border-top:1px solid $black;
+	color:$black;
+	
+	>div,>nav,>ul{
+		@extend %max-width-content-block;
+		padding:.5em 5%;
+		text-align:center;
+	}
+	a{
+		border-bottom:none;
+	}
+	#mc_embed_signup_scroll{
+		@extend %clearfix;
+		label{
+			@extend %clearfix;
+			display:block;
+			margin:1em;
+		}
+		input{
+			float:left;
+			outline:none;
+			color:$black;
+			border:1px solid $grey;
+			padding:1em;
+			box-sizing:border-box;
+			
+		}
+		#mce-EMAIL{width:80%; background-color:$white; border-right:none;}
+		input[type=submit]{
+			background-color:$grey; 
+			cursor:pointer;
+			width:20%;
+			&:hover{background-color:$black;color:$white;}
+			&:active{background-color:$black;color:$white;}
+			}
+	}
+	.contact-links {
+		list-style-type:none;
+		li{
+			float:left;
+			padding:1em;
+		}
+		@extend %clearfix;	
+	}
+}
+
+/**
+ * Page content
+ */
+article, article.post, article.page{
+	header{
+		text-align:center;
+		h1{
+			padding:3rem;
+		}
+	}
+	section{
+		position:relative;
+		h2{
+			text-align:center;
+		}
+		@extend %max-width-content-block;
+	}
+	aside{
+		@extend %clearfix;
+		@media screen and (min-width:$desktop){
+			//position:absolute;
+			top:0;
+			right:100%;
+		}
+		display:flex;
+		display:-webkit-flex;
+		flex-wrap:wrap;
+		border-top:1px solid $grey-light;
+		border-bottom:1px solid $grey-light;
+		padding:1em 0 2rem 0;
+		margin:1em 0 2rem 0;
+		dl{
+			flex-grow:1;
+			min-width:(em(200));
+			display:block;
+			list-style-type:none;
+			padding:0 0 0 1rem;
+			margin:0;
+			border-left:1px solid $grey;
+			float:left;
+			h6{
+				margin:1rem 0 0;
+			}
+		}
+	}
+	footer{
+		
+	}
+	.meta {
+	    font-size: $small-font-size;
+	    color: $grey;
+	}
+}
+
+
+//Custom Page Content
+
+/*  
+ * ///////////////////////////////////// Home / Index
+ */
+.index{
+	text-align:center;
+	h1{font-size:2em;}
+	h2{font-size:1.75em;}
+	h1, h2{	
+		@extend %max-width-content-block;
+		max-width:21em;
+	}
+	ul{
+		list-style-type:none;
+		margin:0;
+		padding:0;
+	}
+	ul#actions{
+		@extend %clearfix;
+		border: 2px solid transparent;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		margin-bottom:4em;
+		display:flex;
+		display:-webkit-flex;
+		flex-wrap:wrap;
+		li{
+			&:first-of-type{
+				width:100%;
+				margin: 0;
+			}
+			flex-grow:1;
+			padding:0;
+			min-width:(em(200));
+			float:left;
+			//width:50%;
+			border: 2px solid transparent;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			a{
+				display:block;
+				padding:2em 0;
+				border:none;
+				background-color:$white;
+				background-color:rgba(255,255,255,.5);
+				span{
+					display:block;
+				}
+				&:hover{
+					color:$black;
+					background-color:rgba(255,255,255,.85);
+				}
+				&:active{
+					color:$white;
+					background-color:rgba(0,0,0,.35);
+				}
+			}
+		}
+	}
+	ul#resume{
+		
+	}
+}
+
+
+/*  
+ * ///////////////////////////////////// Projects
+ */
+.projects{
+	text-align:center;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	@extend %clearfix;	
+	li{
+		//width:90%;
+		padding:3em;
+		margin:0;
+		min-height:(em(200));
+		overflow:hidden;
+		position:relative;
+		a{
+			border:none!important;
+		}
+		border-top:1px solid;
+		small{
+			font-weight:400;
+			color:$grey!important;
+			a{
+				color:$grey!important;
+			}
+		}
+		img{
+			//position:absolute;
+			width:100%;
+			max-width:(em(500));
+			margin:4em auto 2em;
+			z-index:0;
+		}
+		p{
+			position:relative;
+			z-index:1;
+			text-transform:uppercase;
+			letter-spacing:.075em;
+			font-weight:800;
+		}
+		h3{
+			position:relative;
+			font-weight:300;
+			z-index:1;
+			font-size:1.5em;
+			
+			@media screen and (min-width:(em(600))) {
+				font-size:3em;
+			}
+			
+		}
+	}
+}	
+#the-woolley-market       {	
+	img{
+		max-width:em(250);
+	}
+	a{
+		color:maroon;
+		//border-bottom-color:rgb(89,23,18);
+		&:hover{
+			//color:rgb(89,23,18);
+		}
+	}
+}
+#bike-and-build           {	
+	img{
+		max-width:em(200);
+	}
+	a{
+		color:#024C82;
+	}
+}
+#tribeca-film-institute   {
+	img{
+		@extend %device;
+	}
+	
+	a{
+		color:rgb(000,175,239);		
+		&:hover{
+			color:rgb(000,175,239);
+		}
+	}
+}
+#national-geographic      {
+	img{
+		@extend %device;
+	}
+	a{
+		color:#ED1F24;
+	}
+}
+#temple-university        {
+	img{
+		
+	}
+	a{
+		color:#B20838;
+		//border-bottom-color:#B20838;
+	}
+}
+#objects                  {
+	img{
+		@extend %device;
+	}
+	a{
+		border-bottom-color:rgb(0,255,175);
+		color:rgb(0,255,175);
+		&:hover{
+			
+		}
+	}
+}
+#technoserve              {
+	img{
+		top:0;
+		left:50%;
+		width:45%;
+	}
+	a{
+		color:#00b0ac /*#212457*/;
+		&:hover{
+			color:#00b0ac;
+		}
+	}
+}
+#degenerate-art           {
+	img{
+		right:0;
+		top:0;
+		width:25%;
+	}
+	a{
+		
+		color:#AD92C5;
+		border-bottom-color:#000000;
+		&:hover{
+			color:#000;
+		}
+	}
+}
+#muralarts                {
+	
+	img{
+	
+	}
+	a{
+		color:#91AC44;
+		
+		&:hover{
+			color:#91ac44;
+		}
+	}
+}
+#bicycle-film-festival    {
+	
+	img{
+		width:25%;
+		right:0;
+	}
+	a{
+		color:#222;
+		border-bottom-color:#DDD;
+		&:hover{
+			color:#DDD;
+		}
+	}
+}
+#alex-bloom-us{
+	img{
+
+		width:20em;
+	}
+	a{
+		color:#ff0000;
+		&:hover{
+			
+		}
+	}
+}
+#raab-collection          {
+	
+	img{
+		@extend %device;
+	}
+	a{
+		color:#b28449;
+		&:hover{
+			color:#b28449;
+		}
+	}
+}
+
+
+

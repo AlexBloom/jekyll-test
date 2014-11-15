@@ -1,0 +1,155 @@
+<footer class="site-footer">
+
+ 
+ <!-- Begin MailChimp Signup Form -->	 
+ <div id="mc_embed_signup">
+ <form action="//alexbloom.us4.list-manage.com/subscribe/post?u=c1a7163cb6a015c28453eddea&amp;id=13093c8f7e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+     <div id="mc_embed_signup_scroll">
+ 	
+	<label for="mce-EMAIL">Letters From The Traveling Office</label>
+ 	
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+     
+	 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+     <div style="position: absolute; left: -5000px;"><input type="text" name="b_c1a7163cb6a015c28453eddea_13093c8f7e" tabindex="-1" value=""></div>
+     <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+     
+ </form>
+ </div>
+ <!--End mc_embed_signup-->
+ 
+ 
+
+ <!-- Site Description-->
+ <div class="site-description">
+	  <!-- Links to Everything -->
+	  <ul class="contact-links">
+   
+	 <li>
+	 	<a href="mailto:{{site.email}}">
+	 	<span class="icon icon-mail"> </span>
+	 	<span class="username">{{site.email}}</span>
+	 	</a>
+	 </li>
+
+	 {% if site.instagram_username %}
+	 <li>
+	 	<a href="http://instagram.com/{{ site.instagram_username }}">
+	 		<span class="icon-instagram"> </span>
+	 		<!-- <span class="username"> {{site.instagram_username}} </span> -->
+	 	</a>
+	 </li>
+	 {% endif %}
+
+	 {% if site.medium_username %}
+	 <li>
+	 	<a href="http://medium.com/{{ site.medium_username }}">
+	 		<span class="icon-medium">	</span>
+	 		<!-- <span class="username"> {{site.medium_username}} </span> -->
+	 	</a>
+	 </li>
+	 {% endif %}
+
+	 {% if site.ello_username %}
+	 <li>
+	 	<a href="http://ello.co/{{ site.ello_username }}">
+	 		<span class="icon-ello"> </span>
+	 		<!-- <span class="username"> {{site.ello_username}} </span> -->
+	 	</a>
+	 </li>
+	 {% endif %}
+
+	 {% if site.github_username %}
+	    <li>
+	      <a href="https://github.com/{{ site.github_username }}">
+	        <span class="icon-github"> </span>
+	        <!-- <span class="username">{{ site.github_username }}</span> -->
+	      </a>
+	    </li>
+	 {% endif %}
+
+	 {% if site.twitter_username %}
+	    <li>
+	      <a href="https://twitter.com/{{ site.twitter_username }}">
+	        <span class=" icon-twitter">  </span>
+	        <!-- <span class="username">{{ site.twitter_username }}</span> -->
+	      </a>
+	    </li>
+	 {% endif %}
+
+	  </ul>
+
+	 
+   <p>{{ site.description }}</p>
+   <p class="rss-subscribe"> <a href="{{ "/feed.xml" | prepend: site.baseurl }}"><span class="icon-rss"></span> Subscribe via RSS</a></p>
+ </div>
+ 
+ <div class="copyright">
+ 	All content &copy; Alex Bloom 2010&ndash;2014
+ </div>
+ 
+ 
+
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> </script>
+
+<script>
+//var r = Math.floor(Math.random() * 255) + 1
+//var g = Math.floor(Math.random() * 255) + 1
+//var b = Math.floor(Math.random() * 255) + 1
+//	$('body').css(background:rgb(r,g,b,);)
+	
+	
+	var hue = 'rgb(' + (Math.floor(Math.random() *(255-150+1)+150)) + ',' + (Math.floor(Math.random() *(255-150+1)+150)) + ',' + (Math.floor(Math.random() *(255-150+1)+150)) + ')';
+	
+	$('body.index').css("background",hue)
+	
+</script>
+
+<script>
+//   // Hide / Show Header on Scroll - Credit: Marius Craciunoiu
+//   $('#header').addClass('nav-show');
+//   $('.breadcrumb').addClass('nav-show');
+//   // Hide Header on on scroll down
+//   var didScroll;
+//   var lastScrollTop = 0;
+//   var delta = 5;
+//   var navbarHeight = $('header').outerHeight();
+//
+//   $(window).scroll(function(event){
+//       didScroll = true;
+//   });
+//
+//   setInterval(function() {
+//       if (didScroll) {
+//           hasScrolled();
+//           didScroll = false;
+//       }
+//   }, 250);
+//
+//   function hasScrolled() {
+//       var st = $(this).scrollTop();
+//    
+//       // Make sure they scroll more than delta
+//       if(Math.abs(lastScrollTop - st) <= delta)
+//           return;
+//    
+//       // If they scrolled down and are past the navbar, add class .nav-up.
+//       // This is necessary so you never see what is "behind" the navbar.
+//       if (st > lastScrollTop && st > navbarHeight){
+//           // Scroll Down
+//           $('#logo').addClass('simple');
+//		   
+//		   
+//       } else {
+//           // Scroll Up
+//           if(st + $(window).height() < $(document).height()) {
+//               $('#logo').removeClass('simple');
+//			   
+//           }
+//       }
+//    
+//       lastScrollTop = st;
+//   }
+</script>
