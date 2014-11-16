@@ -168,40 +168,55 @@ animation-delay:650ms;
 }
 //Logo As Menu Icon
 #logo.simple{
-	//position:fixed;
-	top:0;
-	left:0;
-	right:0;
-	margin:5rem auto;
+	margin:2rem auto;
 	height:2rem;
 	width:2rem;
-	transition:.5s;
 	.logo-cross{
 		&:before,&:after{
 			height:0!important;
-			width:0!important;
-			
+			width:0!important;	
 		}
 	}
 	#circle{
 		background-image:none;
 		border:.25rem solid $black;
 		box-sizing:border-box;
-		//display:none;
+		display:none;
 	}
 	#eye{
 		#pupil{width:1rem; height:1rem; padding:0!important; }
 		.eye-bracket{
 			display:none;
 			&:before,&:after{
-				//display:none;
+				display:none;
 			}
 		}
 	}
 }
+#logo.simple.open{
+	height:4em;
+	width:4em;
+	&:after{border:none;}
+	&:before{border:none;}
+	#eye{
+		width: 160%;
+		height: 160%;
+		margin: -30% -30% auto -30%;
+		padding:0;
+	}
+	.eye-bracket{
+		display:block!important;
+		width:35%;
+		&:before,&:after{
+			display:block!important;
+		}
+	}
+}
+
 //Logo Style
 #logo{
 	position:relative;
+	z-index:999;
 	top:0em;
 	left:0;
 	right:0;
@@ -209,7 +224,7 @@ animation-delay:650ms;
 	height:8rem;
 	margin:10rem auto;
 	cursor:pointer;
-	transition:.5s;
+	transition:.25s;
 	&:before{
 		@include pseudo-block;
 		transform:rotate(45deg);
@@ -364,5 +379,10 @@ animation-delay:650ms;
 	}	
 }
 
+.site-header{
+	#logo{
+		margin:2rem auto;
+	}
+}
 
 		

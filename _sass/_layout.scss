@@ -1,7 +1,7 @@
 //Layout Variables
 
 %max-width-content-block{
-	max-width:em(750);
+	max-width:(em(700));
 	margin-left: auto;
 	margin-right: auto;
 	width:90%;
@@ -9,48 +9,67 @@
 	padding-right:5%;
 }
 
+body{
+	border-top:.25em solid $black;
+}
+.overflow-hidden{
+	overflow:hidden;
+}
 /**
  * Site Header & Navigation
  */
 .site-header {
-    border-top: 5px solid $grey-dark;
-    border-bottom: 1px solid $grey-light;
-    position: relative;
-	nav{
-	//position:fixed;
-	position:relative;
-	@extend %clearfix;
-	top:0;
-	bottom:0;
-	left:0;
-	right:0;
-	background-color:$black;
-	background-color:rgba(255,255,255,1);
+    position: fixed;
 	width:100%;
-	:nth-child(1){
+	z-index:502;
+	nav{
+		transition:.25s;
+		position:fixed;
+		z-index:100;
+		@extend %clearfix;
+		top:0;
+		bottom:0;
 		left:0;
-	}
-	:nth-child(2){
-		left:46%;
-		right:46%;
-	}
-	:nth-child(3){
 		right:0;
-	}
-		a{
-			//position:absolute;
-			display:none;
-			//display:block;
-			border:1px solid $black;
-			border-radius:100%;
-			width:3em;
-			height:3em;
-			padding:1em;
-			text-align:center;
-			span{
-				display:block;
-			}
+		padding:8em 0 0;
+		background-color:$white;
+		width:100%;
+		text-align:center;
+		
+		&.closed{
+			opacity:0;
+			z-index:-1;
+			transition:.25s;
 		}
+	
+			a{	
+				&:first-child{
+					
+				}
+				&:nth-of-type(even){
+					border-left:1px solid $black;
+				}	
+				display:flex;
+				font-size:1.25em;
+				text-decoration:none;
+				color:$black;
+				padding:0 1.5rem;
+				height:50%;
+				width:50%;
+				float:left;
+				box-sizing:border-box;
+				border-top:1px solid $black;
+				&:hover{
+					color:$text-color;
+				}
+				&:active{
+					background-color:$black;
+				}
+				span,p{
+					display:block;
+					margin:auto;
+				}
+			}
 	}
 }
 
@@ -59,21 +78,25 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-light;
+    //border-top: 1px solid $grey-light;
+	position:relative;
+	z-index:500;
     padding: $spacing-unit 0;
 	border-top:1px solid $black;
 	color:$black;
-	
+	background-color:rgba(255,255,255,0.5);
+	border-bottom:.25em solid $black;
 	>div,>nav,>ul{
 		@extend %max-width-content-block;
 		padding:.5em 5%;
 		text-align:center;
 	}
 	a{
-		border-bottom:none;
+		text-decoration:none;
 	}
 	#mc_embed_signup_scroll{
 		@extend %clearfix;
+		font-size:1em;
 		label{
 			@extend %clearfix;
 			display:block;
@@ -83,16 +106,28 @@
 			float:left;
 			outline:none;
 			color:$black;
-			border:1px solid $grey;
+			border:1px solid $black;
 			padding:1em;
 			box-sizing:border-box;
-			
+			font-size:1rem;
 		}
-		#mce-EMAIL{width:80%; background-color:$white; border-right:none;}
+		#mce-EMAIL{
+			width:70%;
+			@media screen and (min-width:$tablet){
+				width:80%;
+			} 
+			background-color:rgba(0,0,0,0); 
+			border-right:none;
+			color:$black;
+		}
 		input[type=submit]{
-			background-color:$grey; 
+			background-color:$black;
+			color:$white; 
 			cursor:pointer;
-			width:20%;
+			width:30%;
+			@media screen and (min-width:$tablet){
+				width:20%;
+			}
 			&:hover{background-color:$black;color:$white;}
 			&:active{background-color:$black;color:$white;}
 			}
@@ -119,15 +154,21 @@ article, article.post, article.page{
 	}
 	section{
 		position:relative;
+		z-index:501;
 		h2{
 			text-align:center;
 		}
+		//@extend %max-width-content-block;
+	}
+	p{
 		@extend %max-width-content-block;
 	}
 	aside{
+		display:block;
 		@extend %clearfix;
-		@media screen and (min-width:$desktop){
-			//position:absolute;
+		@extend %max-width-content-block;
+		@media screen and (min-width:$jumbotron){
+			position:absolute;
 			top:0;
 			right:100%;
 		}
@@ -137,16 +178,19 @@ article, article.post, article.page{
 		border-top:1px solid $grey-light;
 		border-bottom:1px solid $grey-light;
 		padding:1em 0 2rem 0;
-		margin:1em 0 2rem 0;
+		margin-bottom:2rem;
 		dl{
 			flex-grow:1;
 			min-width:(em(200));
 			display:block;
 			list-style-type:none;
-			padding:0 0 0 1rem;
+			padding:0 1rem 0 0;
 			margin:0;
-			border-left:1px solid $grey;
+			//border-left:1px solid $grey;
 			float:left;
+			dd{
+				padding:.5em 0 0 0;
+			}
 			h6{
 				margin:1rem 0 0;
 			}
@@ -160,7 +204,10 @@ article, article.post, article.page{
 	    color: $grey;
 	}
 }
-
+img.half{
+	width:50%;
+	float:left;
+}
 
 //Custom Page Content
 
@@ -170,7 +217,7 @@ article, article.post, article.page{
 .index{
 	text-align:center;
 	h1{font-size:2em;}
-	h2{font-size:1.75em;}
+	//h2{font-size:1.75em;}
 	h1, h2{	
 		@extend %max-width-content-block;
 		max-width:21em;
@@ -198,12 +245,12 @@ article, article.post, article.page{
 			padding:0;
 			min-width:(em(200));
 			float:left;
-			//width:50%;
 			border: 2px solid transparent;
 			box-sizing: border-box;
 			-webkit-box-sizing: border-box;
 			a{
 				display:block;
+				text-decoration:none;
 				padding:2em 0;
 				border:none;
 				background-color:$white;
@@ -232,14 +279,26 @@ article, article.post, article.page{
  * ///////////////////////////////////// Projects
  */
 .projects{
+	background-color:$grey;
 	text-align:center;
 	list-style-type:none;
 	margin:0;
 	padding:0;
-	@extend %clearfix;	
+	@extend %clearfix;
+	//display:flex;
+	//display:-webkit-flex;
+	//flex-wrap:wrap;
 	li{
-		//width:90%;
-		padding:3em;
+		display:block;
+		//flex-grow:1;
+		padding:0;
+		min-width:(em(200));
+		//float:left;
+		//border: 2px solid $grey;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		background-color:$white;
+		padding:1em;
 		margin:0;
 		min-height:(em(200));
 		overflow:hidden;
@@ -256,18 +315,19 @@ article, article.post, article.page{
 			}
 		}
 		img{
+			//float:right;
+			//display:none;
 			//position:absolute;
-			width:100%;
-			max-width:(em(500));
-			margin:4em auto 2em;
+			width:(em(150));
+			//margin:4em auto 2em;
 			z-index:0;
 		}
-		p{
+		p,h6{
 			position:relative;
 			z-index:1;
-			text-transform:uppercase;
-			letter-spacing:.075em;
-			font-weight:800;
+			//text-transform:uppercase;
+			//letter-spacing:.075em;
+			//font-weight:800;
 		}
 		h3{
 			position:relative;
@@ -276,16 +336,13 @@ article, article.post, article.page{
 			font-size:1.5em;
 			
 			@media screen and (min-width:(em(600))) {
-				font-size:3em;
+				//font-size:3em;
 			}
 			
 		}
 	}
 }	
 #the-woolley-market       {	
-	img{
-		max-width:em(250);
-	}
 	a{
 		color:maroon;
 		//border-bottom-color:rgb(89,23,18);
@@ -295,17 +352,13 @@ article, article.post, article.page{
 	}
 }
 #bike-and-build           {	
-	img{
-		max-width:em(200);
-	}
+
 	a{
 		color:#024C82;
 	}
 }
 #tribeca-film-institute   {
-	img{
-		@extend %device;
-	}
+
 	
 	a{
 		color:rgb(000,175,239);		
@@ -315,26 +368,19 @@ article, article.post, article.page{
 	}
 }
 #national-geographic      {
-	img{
-		@extend %device;
-	}
+
 	a{
 		color:#ED1F24;
 	}
 }
 #temple-university        {
-	img{
-		
-	}
+
 	a{
 		color:#B20838;
 		//border-bottom-color:#B20838;
 	}
 }
 #objects                  {
-	img{
-		@extend %device;
-	}
 	a{
 		border-bottom-color:rgb(0,255,175);
 		color:rgb(0,255,175);
@@ -344,11 +390,6 @@ article, article.post, article.page{
 	}
 }
 #technoserve              {
-	img{
-		top:0;
-		left:50%;
-		width:45%;
-	}
 	a{
 		color:#00b0ac /*#212457*/;
 		&:hover{
@@ -357,13 +398,7 @@ article, article.post, article.page{
 	}
 }
 #degenerate-art           {
-	img{
-		right:0;
-		top:0;
-		width:25%;
-	}
-	a{
-		
+	a{		
 		color:#AD92C5;
 		border-bottom-color:#000000;
 		&:hover{
@@ -371,11 +406,7 @@ article, article.post, article.page{
 		}
 	}
 }
-#muralarts                {
-	
-	img{
-	
-	}
+#muralarts                {	
 	a{
 		color:#91AC44;
 		
@@ -385,11 +416,6 @@ article, article.post, article.page{
 	}
 }
 #bicycle-film-festival    {
-	
-	img{
-		width:25%;
-		right:0;
-	}
 	a{
 		color:#222;
 		border-bottom-color:#DDD;
@@ -399,10 +425,6 @@ article, article.post, article.page{
 	}
 }
 #alex-bloom-us{
-	img{
-
-		width:20em;
-	}
 	a{
 		color:#ff0000;
 		&:hover{
@@ -411,10 +433,6 @@ article, article.post, article.page{
 	}
 }
 #raab-collection          {
-	
-	img{
-		@extend %device;
-	}
 	a{
 		color:#b28449;
 		&:hover{

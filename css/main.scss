@@ -6,13 +6,13 @@
 
 // Our variables
 $base-font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-$base-font-size:   1em;
+$base-font-size:   18px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
 $spacing-unit:     3em;
 
-$text-color:       #222;
+$text-color:       #444;
 $background-color: #fff;
 $brand-color:      #ff4000;
 
@@ -26,7 +26,7 @@ $white: #FFFFFF;
 $on-palm:   600px;
 $on-laptop: 800px;
 
-@function em($target, $context: 16) {
+@function em($target, $context: 18) {
     @return ($target / $context) * 1em;
 }
 
